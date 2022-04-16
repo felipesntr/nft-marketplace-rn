@@ -2,18 +2,40 @@ import {View, Text, Image} from 'react-native';
 import React from 'react';
 import {SIZES, FONTS, COLORS, SHADOWS, assets} from '../constants';
 
-export const NFTTitle = () => {
+export const NFTTitle = ({title, subTitle, tittleSize, subTitleSize}) => {
   return (
     <View>
-      <Text>NFTTitle</Text>
+      <Text
+        style={{
+          fontWeight: 'bold',
+          fontFamily: FONTS.semiBold,
+          fontSize: tittleSize,
+        }}>
+        {title}
+      </Text>
+      <Text style={{fontFamily: FONTS.regular, fontSize: subTitleSize}}>
+        {subTitle}
+      </Text>
     </View>
   );
 };
 
-export const EthPrice = () => {
+export const EthPrice = ({price}) => {
   return (
-    <View>
-      <Text>EthPrice</Text>
+    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <Image
+        source={assets.eth}
+        resizeMode="contain"
+        style={{width: 20, height: 20, marginRight: 2}}
+      />
+      <Text
+        style={{
+          fontFamily: FONTS.medium,
+          fontSize: SIZES.font,
+          color: COLORS.primary,
+        }}>
+        {price}
+      </Text>
     </View>
   );
 };
@@ -48,6 +70,7 @@ export const EndDate = () => {
   return (
     <View
       style={{
+        borderRadius: SIZES.font,
         paddingHorizontal: SIZES.font,
         paddingVertical: SIZES.base,
         backgroundColor: COLORS.white,
